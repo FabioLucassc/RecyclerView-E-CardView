@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -17,9 +19,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.drawer_menu)
+
+        initDrawer()
         bindViews()
         updateList()
+    }
+
+    private fun initDrawer() {
+        val drawerLayoutManager = findViewById<View>(R.id.drawer_layout) as DrawerLayout
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+
+        val toogle = actionBarDrawerToogle(this)
     }
 
     private fun bindViews() {
